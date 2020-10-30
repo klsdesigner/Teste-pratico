@@ -38,4 +38,12 @@ class User extends Authenticatable
     {
         $this->notify(new MyResetPasswordNotification($token));
     }
+
+     /**
+     * Ligação de 1:N (um pra muitos entre veiculos e user)
+     */
+    public function veiculo()
+    {
+        return $this->hasMany(Veiculo::class);
+    }
 }

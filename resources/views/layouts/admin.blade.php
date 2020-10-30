@@ -7,7 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
@@ -22,8 +22,11 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-laravel navbar-static-top navbar-dark bg-dark">
+    
+    {{-- <nav class="navbar navbar-expand-md navbar-laravel navbar-static-top navbar-dark bg-dark">
+
         <div class="container">
+
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name','Federal ST') }} | Administrador
             </a>
@@ -63,12 +66,16 @@
                     @endguest
                 </ul>
             </div>
+
         </div>
+
     </nav>
 
     <main class="py-4">
         @yield('content')
-    </main>
+    </main> --}}
+    
 </div>
+
 </body>
 </html>

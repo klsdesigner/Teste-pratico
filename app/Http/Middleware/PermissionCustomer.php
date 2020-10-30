@@ -20,7 +20,7 @@ class PermissionCustomer
     {
         if(Auth::user()->role != User::ROLE_USER) {
 
-            return redirect( '/admin/home');
+            return redirect( '/home');
         }
 
         return $next($request);

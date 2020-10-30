@@ -27,5 +27,9 @@ class UserTableSeeder extends Seeder
 
         factory(\App\User::class, 50)->states('user')->create();
 
+        // factory(\App\User::class, 50)->create()->each(function($user){
+        //     $user->veiculo()->save(factory(\App\Veiculo::class)->make());
+        // });        
+
     }
 }
