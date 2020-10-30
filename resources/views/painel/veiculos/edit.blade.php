@@ -11,7 +11,7 @@
         <!-- /.card-header -->
         <div class="card-body">
         
-            <form id="qForm" name="qForm" action="{{ route('veiculos.update', ['id' => $veiculo->id]) }}" method="POST">
+            <form id="qForm" name="qForm" action="{{ route('veiculos.update', ['veiculo' => $veiculo->id]) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="card-body">

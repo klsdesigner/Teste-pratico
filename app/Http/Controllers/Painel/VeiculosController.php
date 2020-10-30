@@ -82,10 +82,9 @@ class VeiculosController extends Controller
     public function update(VeiculoRequest $request, $id)
     {
         
-        $data = $request::all();       
+        $data = $request->all();       
 
         $veiculo = Veiculo::find($id);
-
 	    $veiculo->update($data);
 
         return redirect()->route('veiculos.index');
