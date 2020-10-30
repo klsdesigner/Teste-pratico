@@ -33,13 +33,13 @@
                           <!-- text input -->
                           <div class="form-group">
                             <label>Placa</label>
-                            <input type="text" class="form-control" placeholder="Informe a Placa" name="placa" value="{{ $veiculo->placa }}" required autofocus>
+                            <input type="text" class="form-control" placeholder="Informe a Placa" name="placa" value="{{ $veiculo->placa }}" autofocus>
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label>Renevam</label>
-                            <input type="text" class="form-control" placeholder="Informe o Renevam" name="renevam" value="{{ $veiculo->renevam }}" required>
+                            <input type="text" class="form-control" placeholder="Informe o Renevam" name="renevam" value="{{ $veiculo->renevam }}">
                           </div>
                         </div>
                     </div>
@@ -49,13 +49,13 @@
                           <!-- text input -->
                           <div class="form-group">
                             <label>Modelo</label>
-                            <input type="text" class="form-control" placeholder="Informe o Modelo" name="modelo" value="{{ $veiculo->modelo }}" required >
+                            <input type="text" class="form-control" placeholder="Informe o Modelo" name="modelo" value="{{ $veiculo->modelo }}">
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label>Marca</label>
-                            <input type="text" class="form-control" placeholder="Informe a Marca" name="marca" value="{{ $veiculo->marca }}" required>
+                            <input type="text" class="form-control" placeholder="Informe a Marca" name="marca" value="{{ $veiculo->marca }}" >
                           </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                           <!-- text input -->
                           <div class="form-group">
                             <label>Ano</label>
-                            <input type="text" class="form-control" placeholder="Informe o Ano de fabricação" name="ano" value="{{ $veiculo->ano }}" required >
+                            <input type="text" class="form-control" placeholder="Informe o Ano de fabricação" name="ano" value="{{ $veiculo->ano }}"  >
                           </div>
                         </div>
                         <div class="col-sm-6">
