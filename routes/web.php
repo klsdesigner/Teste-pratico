@@ -27,6 +27,7 @@ Route::group(['prefix' => 'Painel', 'namespace' => 'Painel'], function () {
 
     //Rotas Veiculo   
     Route::resource('veiculos', 'VeiculosController');
+    Route::post('veiculos/trash', 'VeiculosController@trash')->name('veiculos.trash');
     
     // Route::get('veiculos', 'VeiculosController@index')->name('veiculos.index');
     // Route::get('veiculos/create', 'VeiculosController@create')->name('veiculos.create');

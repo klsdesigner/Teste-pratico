@@ -13,8 +13,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //$user = auth()->user();
-        
+       // $user = auth()->user();
+        //dd($user['role']);
         // return view('admin.painel.index', compact('user'));
         return view('painel.index');
     }

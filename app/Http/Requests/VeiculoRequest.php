@@ -36,7 +36,7 @@ class VeiculoRequest extends FormRequest
     public function messages()
     {
         return [
-            'placa.required' => 'É obrigatório informar a Placa!',
+            'placa.required' => 'É obrigatório informar a Placa do carro!',
             'placa.min' => 'Informe um valor correto para a placa!',
             'placa.max' => 'Informe um valor correto para a placa!',
             'renevam.required' => 'É obrigatório informar o Renevam!',

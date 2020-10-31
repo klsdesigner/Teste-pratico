@@ -42,7 +42,8 @@ class VeiculosController extends Controller
     {
         $data = $request->all();  
         Veiculo::create($data);	
-	    return redirect()->route('veiculos.index');        
+	     return redirect()->route('veiculos.index');        
+	    //return back()->with('status', 'Veículo Salvo com Sucesso!');        
     }
 
     /**
@@ -53,7 +54,7 @@ class VeiculosController extends Controller
      */
     public function show($id)
     {
-        //
+        //$data = Veiculo::findOrFail($id);
     }
 
     /**
@@ -65,7 +66,7 @@ class VeiculosController extends Controller
     public function edit($id)
     {
         
-        $veiculo = Veiculo::find($id);
+        $veiculo = Veiculo::findOrFail($id);
         $users = \App\User::all(['id', 'name', 'role']);
         
         return view('painel.veiculos.edit', compact('veiculo', 'users'));        
@@ -99,6 +100,18 @@ class VeiculosController extends Controller
      */
     public function destroy($id)
     {
-        //
+       Veiculo::findOrFail($id)->delete();
+       return redirect()->route('veiculos.index');
     }
+    
+    /** 
+     * Lista todos os itens excluidos com softDelete
+    */
+    public function trash($id)
+    {
+       $veiculos = Veiculo::findOrFail($id);
+       return redirect()->route('veiculos.index', compact($veiculo));
+    }
+
+
 }

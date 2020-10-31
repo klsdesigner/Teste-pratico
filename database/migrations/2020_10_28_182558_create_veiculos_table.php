@@ -22,7 +22,7 @@ class CreateVeiculosTable extends Migration
             $table->string('marca');
             $table->year('ano');
             $table->integer('proprietario')->unsigned();
-            $table->timestamps();
+            $table->timestamps();            
 
             $table->foreign('proprietario')
                 ->references('id')->on('users')

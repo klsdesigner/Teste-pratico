@@ -3,14 +3,10 @@
 
 @section('content')
 {{-- <div class="container"> --}}
-    <p class="text-right">
-        <a class="btn btn-success" href="{{ route('veiculos.create') }}">Cadastrar Veículo</a>
-        <a class="btn btn-warning" href="{{ route('veiculos.trash') }}">Itens Excluidos</a>
-    </p>
 
     <div class="card">
         <div class="card-header">
-        <h3 class="card-title">Listagem de Veículos</h3>
+        <h3 class="card-title">Listagem de Veículos e Proprietário</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -34,17 +30,12 @@
                         <td>{{ $veiculo['modelo'] }}</td>
                         <td>{{ $veiculo['marca'] }}</td>
                         <td>{{ $veiculo['ano'] }}</td>
-                        <td>{{ $veiculo['proprietario'] }}</td>                        
-                        <td width='12%'>
+                        <td>{{ $veiculo['proprietario'] }}</td>
+                        <td width='8%'>
                             <div class="row text-center">
-                                <a href="{{ route('veiculos.edit', ['veiculo' => $veiculo->id]) }}" title="Editar" class="btn btn-primary"><i class="fa fa-edit"></i></a>                                
-                                <a href="{{ route('veiculos.show', $veiculo->id) }}" title="Visualizar" class="btn btn-warning"><i class="fa fa-eye"></i></a>     
-
-                                <form action="{{ route('veiculos.destroy', $veiculo->id) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger" title="Enviar para Lixeira"><i class="fa fa-trash"></i></button>
-                                </form>
+                                
+                                <a href="#" title="Visualizar" class="ml-2 text-warning"><i class="fa fa-eye"></i></a>
+                                
                             </div>
                         </td>
                     </tr>

@@ -3,14 +3,10 @@
 
 @section('content')
 {{-- <div class="container"> --}}
-    <p class="text-right">
-        <a class="btn btn-success" href="{{ route('veiculos.create') }}">Cadastrar Veículo</a>
-        <a class="btn btn-warning" href="{{ route('veiculos.trash') }}">Itens Excluidos</a>
-    </p>
 
     <div class="card">
         <div class="card-header">
-        <h3 class="card-title">Listagem de Veículos</h3>
+        <h3 class="card-title">Listagem de Veículos Excluidos</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
