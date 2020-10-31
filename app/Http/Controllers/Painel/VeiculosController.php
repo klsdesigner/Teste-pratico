@@ -17,7 +17,8 @@ class VeiculosController extends Controller
      */
     public function index()
     {         
-        $veiculos = Veiculo::all();
+        // $veiculos = Veiculo::all();
+        $veiculos = Veiculo::withTrashed()->get();
         return view('painel.veiculos.index', compact('veiculos'));
     }
 
@@ -107,10 +108,10 @@ class VeiculosController extends Controller
     /** 
      * Lista todos os itens excluidos com softDelete
     */
-    public function trash($id)
+    public function trash()
     {
-       $veiculos = Veiculo::findOrFail($id);
-       return redirect()->route('veiculos.index', compact($veiculo));
+       //$veiculos = Veiculo::withTrashed()->get();
+       //return redirect()->route('veiculos.index', compact($veiculo));
     }
 
 

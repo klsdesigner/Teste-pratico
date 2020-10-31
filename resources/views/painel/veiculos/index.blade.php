@@ -5,7 +5,7 @@
 {{-- <div class="container"> --}}
     <p class="text-right">
         <a class="btn btn-success" href="{{ route('veiculos.create') }}">Cadastrar Veículo</a>
-        <a class="btn btn-warning" href="{{ route('veiculos.trash') }}">Itens Excluidos</a>
+        {{-- <a class="btn btn-warning" href="{{ route('veiculos.trash') }}">Itens Excluidos</a> --}}
     </p>
 
     <div class="card">
@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 @foreach ($veiculos as $veiculo)
-                    <tr>
+                    <tr @if ($veiculo->trashed()) class="table-danger text-red"  @endif>
                         <td>{{ $veiculo['placa'] }}</td>
                         <td>{{ $veiculo['renevam'] }}</td>
                         <td>{{ $veiculo['modelo'] }}</td>
@@ -37,7 +37,12 @@
                         <td>{{ $veiculo['proprietario'] }}</td>                        
                         <td width='12%'>
                             <div class="row text-center">
-                                <a href="{{ route('veiculos.edit', ['veiculo' => $veiculo->id]) }}" title="Editar" class="btn btn-primary"><i class="fa fa-edit"></i></a>                                
+                                @if (($veiculo->trashed()))
+                                    <a href="" title="Editar" class="btn btn-primary" disabled><i class="fa fa-edit"></i></a>
+                                @else 
+                                    <a href="{{ route('veiculos.edit', ['veiculo' => $veiculo->id]) }}" title="Editar" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                @endif
+                                                                
                                 <a href="{{ route('veiculos.show', $veiculo->id) }}" title="Visualizar" class="btn btn-warning"><i class="fa fa-eye"></i></a>     
 
                                 <form action="{{ route('veiculos.destroy', $veiculo->id) }}" method="POST">
