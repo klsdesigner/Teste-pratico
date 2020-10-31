@@ -44,12 +44,24 @@
                                 @endif
                                                                 
                                 <a href="{{ route('veiculos.show', $veiculo->id) }}" title="Visualizar" class="btn btn-warning"><i class="fa fa-eye"></i></a>     
+                                
+                                @if (($veiculo->trashed()))
+                                                                
+                                <form action="{{ route('veiculos.restore', $veiculo->id) }}" method="POST">
+                                    @csrf   
+                                    {{-- @method('PUT')                                  --}}
+                                    <button type="submit" class="btn btn-success" title="Restaurar"><i class="fa fa-trash-restore"></i></button>
+                                </form>
+
+                                @else 
 
                                 <form action="{{ route('veiculos.destroy', $veiculo->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger" title="Enviar para Lixeira"><i class="fa fa-trash"></i></button>
                                 </form>
+
+                                @endif
                             </div>
                         </td>
                     </tr>

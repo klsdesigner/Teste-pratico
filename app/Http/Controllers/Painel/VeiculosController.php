@@ -9,14 +9,14 @@ use App\Veiculo;
 
 class VeiculosController extends Controller
 {
-    
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {         
+    {
         // $veiculos = Veiculo::all();
         $veiculos = Veiculo::withTrashed()->get();
         return view('painel.veiculos.index', compact('veiculos'));
@@ -28,8 +28,8 @@ class VeiculosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {        
-        $users = \App\User::all(['id', 'name', 'role']);        
+    {
+        $users = \App\User::all(['id', 'name', 'role']);
         return view('painel.veiculos.create', compact('users'));
     }
 
@@ -41,10 +41,10 @@ class VeiculosController extends Controller
      */
     public function store(VeiculoRequest $request)
     {
-        $data = $request->all();  
-        Veiculo::create($data);	
-	     return redirect()->route('veiculos.index');        
-	    //return back()->with('status', 'Veículo Salvo com Sucesso!');        
+        $data = $request->all();
+        Veiculo::create($data);
+        return redirect()->route('veiculos.index');
+        //return back()->with('status', 'Veículo Salvo com Sucesso!');        
     }
 
     /**
@@ -66,12 +66,11 @@ class VeiculosController extends Controller
      */
     public function edit($id)
     {
-        
+
         $veiculo = Veiculo::findOrFail($id);
         $users = \App\User::all(['id', 'name', 'role']);
-        
-        return view('painel.veiculos.edit', compact('veiculo', 'users'));        
 
+        return view('painel.veiculos.edit', compact('veiculo', 'users'));
     }
 
     /**
@@ -83,14 +82,13 @@ class VeiculosController extends Controller
      */
     public function update(VeiculoRequest $request, $id)
     {
-        
-        $data = $request->all();       
+
+        $data = $request->all();
 
         $veiculo = Veiculo::find($id);
-	    $veiculo->update($data);
+        $veiculo->update($data);
 
         return redirect()->route('veiculos.index');
-       
     }
 
     /**
@@ -101,18 +99,26 @@ class VeiculosController extends Controller
      */
     public function destroy($id)
     {
-       Veiculo::findOrFail($id)->delete();
-       return redirect()->route('veiculos.index');
+        Veiculo::findOrFail($id)->delete();
+        return redirect()->route('veiculos.index');
     }
-    
+
     /** 
      * Lista todos os itens excluidos com softDelete
-    */
+     */
     public function trash()
     {
-       //$veiculos = Veiculo::withTrashed()->get();
-       //return redirect()->route('veiculos.index', compact($veiculo));
+        //$veiculos = Veiculo::onlyTrashed()->all();
+        //return redirect()->route('veiculos.index', compact($veiculo));
     }
 
+    /** 
+     * Restaura o item excluido com softDelete
+     */
+    public function restore($id)
+    {
 
+        Veiculo::withTrashed()->findOrFail($id)->restore();
+        return redirect()->route('veiculos.index');
+    }
 }
