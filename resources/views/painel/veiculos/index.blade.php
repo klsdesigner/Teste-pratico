@@ -29,12 +29,13 @@
             <tbody>
                 @foreach ($veiculos as $veiculo)
                     <tr @if ($veiculo->trashed()) class="table-danger text-red"  @endif>
-                        <td>{{ $veiculo['placa'] }}</td>
-                        <td>{{ $veiculo['renevam'] }}</td>
-                        <td>{{ $veiculo['modelo'] }}</td>
-                        <td>{{ $veiculo['marca'] }}</td>
-                        <td>{{ $veiculo['ano'] }}</td>
-                        <td>{{ $veiculo['proprietario'] }}</td>                        
+                        <td>{{ $veiculo->placa }}</td>
+                        <td>{{ $veiculo->renevam }}</td>
+                        <td>{{ $veiculo->modelo }}</td>
+                        <td>{{ $veiculo->marca }}</td>
+                        <td>{{ $veiculo->ano }}</td>
+                        <td>{{ $veiculo->user->name }}</td> 
+
                         <td width='12%'>
                             <div class="row text-center">
                                 @if (($veiculo->trashed()))

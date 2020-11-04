@@ -18,7 +18,8 @@ class VeiculosController extends Controller
     public function index()
     {
         // $veiculos = Veiculo::all();
-        $veiculos = Veiculo::withTrashed()->get();
+        $veiculos = Veiculo::withTrashed('user')->get();
+        
         return view('painel.veiculos.index', compact('veiculos'));
     }
 
